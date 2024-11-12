@@ -33,24 +33,21 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
-  uint16_t value = analogRead(A0);
-  float voltValue = map(value, 0, 1023, 0.0F, 5.0F);
-  float voltFloatValue = (5.0F / 1024) * value;
-  Serial.print(value);
-  Serial.print(',');
-  Serial.print(voltValue);
-  Serial.print(',');
-  Serial.println(voltFloatValue);
 
   if (digitalRead(2) == HIGH) {
-    blink(LED_BUILTIN, 100);
+    uint16_t value = analogRead(A0);
+    uint16_t delayTime = map(value, 0, 1023, 250, 4000);
+    Serial.print("temps d'attente entre les changements:");
+    Serial.print(delayTime);
+    Serial.println("ms");
+    blink(LED_BUILTIN, delayTime);
   }
   delay(500);
 }
 
 void blink(int pin, uint8_t delayTime) {
   digitalWrite(pin, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);              // wait for a second
+  delay(delayTime);         // wait for a second
   digitalWrite(pin, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);              // wait for a second
+  delay(delayTime);         // wait for a second
 }

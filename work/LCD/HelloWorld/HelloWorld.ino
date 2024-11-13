@@ -14,22 +14,20 @@
  * wiper to LCD VO pin (pin 3)
 */
 // include the library code:
-#include <LiquidCrystal.h>
-#define RS 12
-#define EN 11
-#define D4 7
-#define D5 6
-#define D6 5
-#define D7 4
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
 
-LiquidCrystal lcd(RS, EN, D4, D5, D6, D7);
+LiquidCrystal_I2C lcd(0x27,16,2); 
+
+ 
 
 void setup() {
   //demarrage serie
   Serial.begin(9600);
   Serial.print("Hello\n");
   //demarrage de l'instance de lcd
-  lcd.begin(16, 2);
+  lcd.init();
+  lcd.backlight();
   lcd.print("DEMAT BREIZH");
 }
 

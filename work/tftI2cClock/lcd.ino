@@ -13,7 +13,7 @@
 #define LCD_D4 5
 #define LCD_EN 11
 #define LCD_RS 12
-LiquidCrystal lcd(LCD_RS, LCD_EN,LCD_D4, LCD_D5, LCD_D6, LCD_D7);
+LiquidCrystal lcd(LCD_RS, LCD_EN, LCD_D4, LCD_D5, LCD_D6, LCD_D7);
 
 uint8_t DEG_CHAR[8] = {
   0b00000,
@@ -32,19 +32,28 @@ void lcdSetup() {
   lcd.print("00:00:00");
   lcd.setCursor(9, 0);
   lcd.print("00.00");
-  lcd.write((uint8_t) 0);
+  lcd.write((uint8_t)0);
   lcd.print("c");
   lcd.setCursor(3, 1);
   lcd.print("00/00/0000");
+  lcd.setCursor(_LCD_HUMIDITY_START_POSITION_X, _LCD_HUMIDITY_START_POSITION_Y);
+  lcd.print("00%");
 }
 void lcdLoop() {
-  printIntOnLcd(tmYearToCalendar(tm.Year), 9, 1, "%04d");
-  printIntOnLcd(tm.Month, 6, 1, "%02d");
-  printIntOnLcd(tm.Day, 3, 1, "%02d");
-  printIntOnLcd(tm.Hour, 0, 0, "%02d");
-  printIntOnLcd(tm.Minute, 3, 0, "%02d");
-  printIntOnLcd(tm.Second, 6, 0, "%02d");
-  printFloatOnLcd(temperature, 9, 0, 4, 2);
+  //affichage Date & Heure
+  printIntOnLcd(tmYearToCalendar(tm.Year), _LCD_DATE_START_POSITION_X + 6, _LCD_DATE_START_POSITION_Y, "%04d");
+  printIntOnLcd(tm.Month, _LCD_DATE_START_POSITION_X + 3, _LCD_DATE_START_POSITION_Y, "%02d");
+  printIntOnLcd(tm.Day, _LCD_DATE_START_POSITION_X, _LCD_DATE_START_POSITION_Y, "%02d");
+  printIntOnLcd(tm.Hour, _LCD_TIME_START_POSITION_X, _LCD_TIME_START_POSITION_Y, "%02d");
+  printIntOnLcd(tm.Minute, _LCD_TIME_START_POSITION_X + 3, _LCD_TIME_START_POSITION_Y, "%02d");
+  printIntOnLcd(tm.Second, _LCD_TIME_START_POSITION_X + 6, _LCD_TIME_START_POSITION_Y, "%02d");
+  //affichage temperature
+  #ifdef TEMP
+  printFloatOnLcd(temperature, _LCD_TEMP_START_POSITION_X, _LCD_TEMP_START_POSITION_Y, 4, 2);
+  #endif
+  #ifdef HUMIDITY
+  printIntOnLcd(humidity, _LCD_HUMIDITY_START_POSITION_X, _LCD_HUMIDITY_START_POSITION_Y, "%02d");
+  #endif
 }
 
 void printIntOnLcd(uint16_t value, uint8_t x, uint8_t y, const char *format) {

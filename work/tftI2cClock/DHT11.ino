@@ -7,12 +7,12 @@
 #ifdef DHT11_HUMIDITY
   void setupHumidity(){}
   void loopHumidity(){
-    humidity = dht11.readHumidity();
+    datas.humidity = dht11.readHumidity();
   }
 #endif
 #ifdef DHT11_TEMPERATURE
   void setupTemperature() {}
   void loopTemperature() {
-     temperature = dht11.readTemperature();
+     datas.temperature = dht11.readTemperature();
   }
 #endif

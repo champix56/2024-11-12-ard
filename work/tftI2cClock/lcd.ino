@@ -41,18 +41,18 @@ void lcdSetup() {
 }
 void lcdLoop() {
   //affichage Date & Heure
-  printIntOnLcd(tmYearToCalendar(tm.Year), _LCD_DATE_START_POSITION_X + 6, _LCD_DATE_START_POSITION_Y, "%04d");
-  printIntOnLcd(tm.Month, _LCD_DATE_START_POSITION_X + 3, _LCD_DATE_START_POSITION_Y, "%02d");
-  printIntOnLcd(tm.Day, _LCD_DATE_START_POSITION_X, _LCD_DATE_START_POSITION_Y, "%02d");
-  printIntOnLcd(tm.Hour, _LCD_TIME_START_POSITION_X, _LCD_TIME_START_POSITION_Y, "%02d");
-  printIntOnLcd(tm.Minute, _LCD_TIME_START_POSITION_X + 3, _LCD_TIME_START_POSITION_Y, "%02d");
-  printIntOnLcd(tm.Second, _LCD_TIME_START_POSITION_X + 6, _LCD_TIME_START_POSITION_Y, "%02d");
+  printIntOnLcd(tmYearToCalendar(datas.dateTime.Year), _LCD_DATE_START_POSITION_X + 6, _LCD_DATE_START_POSITION_Y, "%04d");
+  printIntOnLcd(datas.dateTime.Month, _LCD_DATE_START_POSITION_X + 3, _LCD_DATE_START_POSITION_Y, "%02d");
+  printIntOnLcd(datas.dateTime.Day, _LCD_DATE_START_POSITION_X, _LCD_DATE_START_POSITION_Y, "%02d");
+  printIntOnLcd(datas.dateTime.Hour, _LCD_TIME_START_POSITION_X, _LCD_TIME_START_POSITION_Y, "%02d");
+  printIntOnLcd(datas.dateTime.Minute, _LCD_TIME_START_POSITION_X + 3, _LCD_TIME_START_POSITION_Y, "%02d");
+  printIntOnLcd(datas.dateTime.Second, _LCD_TIME_START_POSITION_X + 6, _LCD_TIME_START_POSITION_Y, "%02d");
   //affichage temperature
   #ifdef TEMP
-  printFloatOnLcd(temperature, _LCD_TEMP_START_POSITION_X, _LCD_TEMP_START_POSITION_Y, 4, 2);
+  printFloatOnLcd(datas.temperature, _LCD_TEMP_START_POSITION_X, _LCD_TEMP_START_POSITION_Y, 4, 2);
   #endif
   #ifdef HUMIDITY
-  printIntOnLcd(humidity, _LCD_HUMIDITY_START_POSITION_X, _LCD_HUMIDITY_START_POSITION_Y, "%02d");
+  printIntOnLcd(datas.humidity, _LCD_HUMIDITY_START_POSITION_X, _LCD_HUMIDITY_START_POSITION_Y, "%02d");
   #endif
 }
 

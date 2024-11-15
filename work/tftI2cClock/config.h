@@ -4,6 +4,7 @@
 *******/
 #define LCD_I2C
 //#define LCD_CLASSIC
+#define TFT_ST7735_128_160
 /********
 humidity sensors
 *********/
@@ -31,7 +32,9 @@ humidity sensors
 #if defined(LCD_I2C)|| defined(LCD_CLASSIC)
   #define LCD
 #endif
-
+#if defined(TFT_ST7735_128_160) 
+  #define TFT
+#endif
 #if defined(DHT11_HUMIDITY)|| defined(DHT11_TEMP)
   #define _DHT11_CHIP_PRESENT
 #endif

@@ -16,7 +16,7 @@ void setupTemperature() {
 }
 void loopTemperature() {
   sensors.requestTemperatures();  // Send the command to get temperatures
-  temperature = sensors.getTempCByIndex(0);
+  datas.temperature = sensors.getTempCByIndex(0);
 }
 
 #endif

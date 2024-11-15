@@ -1,13 +1,12 @@
 
 #include "config.h"
+#include "struct.h"
 #include <Wire.h>
 #include <TimeLib.h>
 #include <DS1307RTC.h>
 
 
-tmElements_t tm;
-float temperature;
-int humidity;
+struct S_Datas datas;
 
 void setup() {
   setupDebug();
@@ -24,10 +23,9 @@ void setup() {
 }
 
 void loop() {
-  RTC.read(tm);
+  RTC.read(datas.dateTime);
 #ifdef TEMP
   loopTemperature();
-  Serial.println(temperature);
 #endif
 #ifdef HUMIDITY
   loopHumidity();

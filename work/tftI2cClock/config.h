@@ -10,12 +10,17 @@ humidity sensors
 *********/
 #define DHT11_HUMIDITY
 //#define DHT22_HUMIDITY
-
+/*******
+  definition capteur de pression atmo
+*********/
+ 
+#define BMP180_PRESSURE
 /*******
   definition capteur de temperature
 *********/
 //#define DS18B20
 #define DHT11_TEMPERATURE
+#define BMP180_TEMPERATURE
 
 #if defined(LCD_I2C)|| defined(LCD_CLASSIC)
   #undef LCD_CLASSIC
@@ -37,5 +42,11 @@ humidity sensors
 #endif
 #if defined(DHT11_HUMIDITY)|| defined(DHT11_TEMP)
   #define _DHT11_CHIP_PRESENT
+#endif
+#if defined(BMP180_PRESSURE)|| defined(BMP180_TEMPERATURE)
+  #define _BMP180_CHIP_PRESENT
+#endif
+#if defined(BMP180_PRESSURE) 
+  #define PRESSURE
 #endif
 #include "config_adv.h"

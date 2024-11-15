@@ -1,3 +1,5 @@
+#ifndef __STRUCT_H_
+#define __STRUCT_H_
 #include "config.h"
 #include <TimeLib.h>
 struct S_Datas{
@@ -12,3 +14,4 @@ struct S_Datas{
   float temperature;
   #endif
 } ;
+#endif

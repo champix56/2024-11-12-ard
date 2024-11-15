@@ -14,4 +14,12 @@ struct S_Datas{
   float temperature;
   #endif
 } ;
+
+union U_Datas{
+  struct S_Datas datas;
+  byte b[sizeof(struct S_Datas)];
+  //unit16_t u16[sizeof(struct S_Datas)/2];
+};
+
+
 #endif

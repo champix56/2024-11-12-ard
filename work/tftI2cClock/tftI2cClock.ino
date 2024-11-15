@@ -6,12 +6,21 @@
 #include <TimeLib.h>
 #include <DS1307RTC.h>
 
- 
+
 struct S_Datas datas;
 
 void setup() {
   setupDebug();
   Serial.println("coucou");
+#ifdef TFT
+  tftSetup();
+#endif
+#ifdef SD_CSV
+  setupCSV();
+#endif
+#ifdef SD_BIN
+  setupBIN();
+#endif
 #ifdef TEMP
   setupTemperature();
 #endif
@@ -20,9 +29,6 @@ void setup() {
 #endif
 #ifdef LCD
   lcdSetup();
-#endif
-#ifdef TFT
-  tftSetup();
 #endif
 #ifdef PRESSURE
   pressureSetup();
@@ -43,9 +49,14 @@ void loop() {
 #ifdef LCD
   lcdLoop();
 #endif
-
 #ifdef TFT
   tftLoop();
+#endif
+#ifdef SD_CSV
+  loopCSV();
+#endif
+#ifdef SD_BIN
+  loopBIN();
 #endif
   delay(500);
 }

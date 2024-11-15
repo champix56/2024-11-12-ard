@@ -18,10 +18,10 @@ void pressureLoop() {
 }
 #endif
 #ifdef BMP180_TEMPERATURE
-void temperatureSetup() {
+void setupTemperature() {
   setupBMP180();
 }
-void temperatureLoop() {
+void loopTemperature() {
   datas.temperature = bmp.readTemperature();
 }
 #endif

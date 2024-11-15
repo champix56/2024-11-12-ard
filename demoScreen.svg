@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 132 164">
+    <!-- const frame -->
+    <rect x="0" y="0" width="128" height="160" fill="black" />
+    <rect x="0" y="0" width="128" height="9" fill="red"/>
+    <text x="2"  y="30" fill="white" font-size="14px" baseline-shift="sub">Pression :</text>
+        <text x="102"  y="30" fill="white" font-size="14px" baseline-shift="sub">hPa</text>
+    <text x="2"  y="60" fill="white" font-size="14px" baseline-shift="sub">Humidity :</text>
+    <text x="102"  y="60" fill="white" font-size="14px" baseline-shift="sub">%</text>
+    <text x="2"  y="90" fill="white" font-size="14px" baseline-shift="sub">Temp :</text>
+    <text x="102"  y="90" fill="white" font-size="14px" baseline-shift="sub">°C</text>
+    
+
+    <!-- values -->
+    <rect x="1" y="0" width="20" height="8" stroke="white" fill="none"/>
+    <text x="2"  y="2" fill="white" font-size="7px" baseline-shift="sub">14:15</text>
+    
+    <rect x="89" y="0" width="38" height="8" stroke="white" fill="none"/>
+    <text x="90"  y="2" fill="white" font-size="7px" baseline-shift="sub">15/11/20024</text>
+
+    <rect x="64" y="24" width="28" height="16" stroke="white" fill="none"/>
+    <text x="67"  y="28" fill="white" font-size="14px" baseline-shift="sub">999</text>
+
+    <rect x="64" y="54" width="28" height="16" stroke="white" fill="none"/>
+    <text x="72"  y="59" fill="white" font-size="14px" baseline-shift="sub">99</text>
+
+     <rect x="54" y="85" width="38" height="16" stroke="white" fill="none"/>
+    <text x="57"  y="90" fill="white" font-size="14px" baseline-shift="sub">99.00</text>
+
+    
+</svg>
